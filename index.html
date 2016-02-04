@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>Susytools-eventloop-results by lukasheinrich</title>
+    <title>Quickana-tutorial-results by lukasheinrich</title>
 
     <link rel="stylesheet" href="stylesheets/styles.css">
     <link rel="stylesheet" href="stylesheets/github-light.css">
@@ -11,30 +11,60 @@
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
+    <script type="text/javascript" src="https://root.cern.ch/js/latest/scripts/JSRootCore.js?2d"></script>
+
+
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function(){
+            var filename = "results/hist-input.root";
+            JSROOT.OpenFile(filename, function(file) {
+               file.ReadObject("EventLoop_EventCount;1", function(obj) {
+                  JSROOT.draw("drawing", obj, "histtext");
+               });
+            });
+        });
+    </script>
+
   </head>
   <body>
     <div class="wrapper">
       <header>
-        <h1>Susytools-eventloop-results</h1>
-        <p>results from automated travis builds</p>
+        <h1>QuickAna Tutorial</h1>
+        <p>results from automated travis builds of ATLAS analysis code</p>
 
-        <p class="view"><a href="https://github.com/lukasheinrich/susytools-eventloop-results">View the Project on GitHub <small>lukasheinrich/susytools-eventloop-results</small></a></p>
+        <p class="view"><a href="https://github.com/lukasheinrich/susytools-eventloop">View the Analysis Code Repository on GitHub <small>lukasheinrich/susytools-eventloop</small></a></p>
 
 
         <ul>
-          <li><a href="https://github.com/lukasheinrich/susytools-eventloop-results/zipball/master">Download <strong>ZIP File</strong></a></li>
-          <li><a href="https://github.com/lukasheinrich/susytools-eventloop-results/tarball/master">Download <strong>TAR Ball</strong></a></li>
-          <li><a href="https://github.com/lukasheinrich/susytools-eventloop-results">View On <strong>GitHub</strong></a></li>
+          <li><a href="https://github.com/lukasheinrich/susytools-eventloop/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/lukasheinrich/susytools-eventloop/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/lukasheinrich/susytools-eventloop">View On <strong>GitHub</strong></a></li>
         </ul>
+
+        <p> Docker Image: </p>
+        <a href="https://imagelayers.io/?images=lukasheinrich/susytools-eventloop:latest" title="Get your own badge on imagelayers.io"><img src="https://badge.imagelayers.io/lukasheinrich/susytools-eventloop:latest.svg"></a>
+
+        <p> Build Status: </p>
+        <a href="https://travis-ci.org/lukasheinrich/susytools-eventloop"><img src="https://travis-ci.org/lukasheinrich/susytools-eventloop.svg?branch=master">
+        </a>
       </header>
       <section>
         <h1>
 <a id="susytools-eventloop-results" class="anchor" href="#susytools-eventloop-results" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>susytools-eventloop-results</h1>
 
-<p>results from automated travis builds</p>
+        <p>
+            This pages shows the automatically generated results coming from analysis code running on Travis CI. The analysis code is a QuickAna/EventLoop based analysis with the code stored in the <a href="https://github.com/lukasheinrich/susytools-eventloop">susytools-eventloop</a> repository.
+        </p>
+
+        <p>These are the contents of the result ROOT file</p>
+        <div id="drawing"></div>
+        
       </section>
       <footer>
         <p>This project is maintained by <a href="https://github.com/lukasheinrich">lukasheinrich</a></p>
+        <p>The source of this page is at  <a href="https://github.com/lukasheinrich/susytools-eventloop-results">lukasheinrich/susytools-eventloop-results</a></p>
         <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
       </footer>
     </div>
